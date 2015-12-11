@@ -15,7 +15,6 @@ $false_arr = array(
 	'下标不存在'	=> $a['xx'], 
 	'数字0'	=> 0, 
 	'字符0'	=>  '0', 
-	'字符0.0'	=> '0.0', 
 	'空数组'	=>  array(), 
 	'0为除数'	=> (10 / 0)
 );
@@ -30,32 +29,18 @@ $one_arr = array(
 	'字符1.0'	=> '1.0'
 );
 
-echo "true\r\n";
-foreach ($true_arr as $v) {
-	echo $v . ': ';
-	var_dump($v == true);
-}
-echo "=================\r\n\r\n";
+out($true_arr, true);
+out($false_arr, false);
+out($zero_arr, 0);
+out($one_arr, 1);
 
-
-echo "false\r\n";
-foreach ($false_arr as $key => $v) {
-	echo $key . ': ';
-	var_dump($v == false);
-}
-echo "=================\r\n\r\n";
-
-echo "zero\r\n";
-foreach ($zero_arr as $key => $v) {
-	echo $key . ': ';
-	var_dump($v == 0);
-}
-echo "=================\r\n\r\n";
-
-echo "one\r\n";
-foreach ($one_arr as $key => $v) {
-	echo $key . ': ';
-	var_dump($v == 0);
+function out($arr, $target) {
+	echo $target."\r\n\r\n";
+	foreach ($arr as $key => $v) {
+		echo $key . ': ';
+		var_dump($v == $target);
+	}
+	echo "=================\r\n\r\n";
 }
 
 ?>
